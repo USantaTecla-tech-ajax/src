@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AJAX</title>
+        <script>
+            let url = "https://restcountries.eu/rest/v2/all";
+            let httpRequest = new XMLHttpRequest();
+            
+        function request() {
+            httpRequest.open("GET", encodeURI(url), true);
+            httpRequest.responseType = "json";
+            httpRequest.onload = () => {
+                if (httpRequest.status === 200){
+                    document.getElementById("data").innerHTML 
+                        = JSON.stringify(httpRequest.response);
+                } else {
+                    alert("No hay conexión");
+            }};
+            httpRequest.send();
+        }
+
+    </script>
+    </head>
+    <body onload="request();">
+        <p id="data"></p>   
+    </body>
+</html>
