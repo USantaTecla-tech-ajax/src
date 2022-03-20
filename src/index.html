@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>AJAX</title>
-        <script>
-            let url = "https://restcountries.com/v3.1/all";
-            let httpRequest = new XMLHttpRequest();
-            
+
+<head>
+    <title>Countries</title>
+    <script>
         function request() {
-            httpRequest.open("GET", encodeURI(url), true);
+            let httpRequest = new XMLHttpRequest();
+            httpRequest.open("GET", encodeURI("https://restcountries.com/v3.1/all"), true);
             httpRequest.responseType = "json";
             httpRequest.onload = () => {
-                if (httpRequest.status === 200){
-                    document.getElementById("data").innerHTML 
+                if (httpRequest.status === 200) {
+                    document.getElementById("data").innerHTML
                         = JSON.stringify(httpRequest.response);
                 } else {
                     alert("No hay conexión");
-            }};
+                }
+            };
             httpRequest.send();
         }
-
     </script>
-    </head>
-    <body onload="request();">
-        <p id="data"></p>   
-    </body>
+</head>
+
+<body onload="request();">
+    <p id="data"></p>
+</body>
+
 </html>
