@@ -37,7 +37,7 @@ function generateCountries(countries) {
         h2.appendChild(text);
         const img = document.createElement("img");
         div.appendChild(img);
-        img.name = country.name;
+        img.alt = country.name;
         img.src = country.flag;
         div.onclick = loadCountry;
         main.appendChild(div);
